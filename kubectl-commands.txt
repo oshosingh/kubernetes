@@ -19,6 +19,12 @@ kubectl explain object_name (pod, service) . [options (spec, containers)]
 # generate kubernetes object manifest file (yaml/json)
 kubectl run nginx --image=nginx --dry-run=client -o [ yaml / json ] 
 
+# label
+kubectl run nginx --image=nginx --labels env=prod
+
+# selector
+kubectl get pods -l env=prod
+
 
 
 
