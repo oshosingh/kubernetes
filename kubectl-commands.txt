@@ -1,7 +1,7 @@
 kubectl get nodes
 
 # pods
-kubectl get pods
+kubectl get pods [ options(--show-labels) ]
 kubectl run pod_name --image=img_name --port=[ephimeral port]
 kubectl descibe pod pod_name
 kubectl delete pod pod_name
@@ -20,10 +20,14 @@ kubectl explain object_name (pod, service) . [options (spec, containers)]
 kubectl run nginx --image=nginx --dry-run=client -o [ yaml / json ] 
 
 # label
-kubectl run nginx --image=nginx --labels env=prod
+kubectl run nginx --image=nginx --labels env=prod (new)
+kubectl label pods pod_name env=prod (existing pod)
 
 # selector
 kubectl get pods -l env=prod
+kubectl get pods -l env!=prod (conditional operator)
+
+
 
 
 
