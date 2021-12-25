@@ -8,3 +8,22 @@ spec:
       name: nginx-cont
       ports:
         - containerPort : 80
+
+# cli generated sample pod yaml
+...
+
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx
+  name: nginx
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

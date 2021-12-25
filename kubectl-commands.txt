@@ -1,0 +1,24 @@
+kubectl get nodes
+
+# pods
+kubectl get pods
+kubectl run pod_name --image=img_name --port=[ephimeral port]
+kubectl descibe pod pod_name
+kubectl delete pod pod_name
+kubectl delete pod --all (delete all pods)
+
+# execute container running inside a pod
+kubectl exec -it pod_name [bash / sh / supported commands]
+
+# execute container if a pod hosts multiple container
+kubectl exec -it pod_name -c container_name [bash / sh / supported commands]
+
+# cli api docs
+kubectl explain object_name (pod, service) . [options (spec, containers)]
+
+# generate kubernetes object manifest file (yaml/json)
+kubectl run nginx --image=nginx --dry-run=client -o [ yaml / json ] 
+
+
+
+
