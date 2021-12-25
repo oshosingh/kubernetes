@@ -27,7 +27,12 @@ kubectl label pods pod_name env=prod (existing pod)
 kubectl get pods -l env=prod
 kubectl get pods -l env!=prod (conditional operator)
 
+# replicaset
+kubectl get replicaset [ can use shortname -> rs ]
+kubectl delete rs rs_name
 
+# create object from yaml
+kubectl apply -f yaml_file_name.yaml
 
 
 
