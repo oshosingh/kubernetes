@@ -1,5 +1,8 @@
 kubectl get nodes
 
+# get yaml or json of existing kube object
+kubectl get object object_name -o yaml
+
 # pods
 kubectl get pods [ options(--show-labels) ]
 kubectl run pod_name --image=img_name --port=[ephimeral port]
@@ -35,11 +38,16 @@ kubectl delete rs rs_name
 kubectl apply -f yaml_file_name.yaml
 
 # deployment
+kubectl create deployment deployment_name --image= img_name
+
 kubectl get deployment
 kubectl describe deployment deployment_name
-kubectl rollout history deployment.v1.apps/frontend-deployment (kube maintains revisions)
+kubectl rollout history deployment.v1.apps/frontend-deployment (kube maintains revisions) or kubectl rollout history deployment deployment_name
 kubectl rollout history deployment.v1.apps/frontend-deployment --revision 1 (revision_number, it will return more info)
 kubectl rollout undo deployment.v1.apps/frontend-deployment --to-revision=1 (roll out to given version)
- 
 
+# update object in existing deployment
+kubectl set image deployment deployment_name container_name = new_image --record (update image) 
+kubectl scale deployment deployment_name --replicas 10 (scale deployment)
+kubectl rollout undo deployment deployment_name (rollout undo)
 
