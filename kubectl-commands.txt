@@ -34,6 +34,12 @@ kubectl delete rs rs_name
 # create object from yaml
 kubectl apply -f yaml_file_name.yaml
 
-
+# deployment
+kubectl get deployment
+kubectl describe deployment deployment_name
+kubectl rollout history deployment.v1.apps/frontend-deployment (kube maintains revisions)
+kubectl rollout history deployment.v1.apps/frontend-deployment --revision 1 (revision_number, it will return more info)
+kubectl rollout undo deployment.v1.apps/frontend-deployment --to-revision=1 (roll out to given version)
+ 
 
 
