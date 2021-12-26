@@ -1,0 +1,23 @@
+apiVersion : v1
+kind : Pod
+metadata:
+  name : mypod
+  labels :
+    env : prod
+    app : nginx
+spec:
+  affinity:
+    podAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+            - key: app
+              operator: In # In for pod affinity and NotIn for anti-pod affinity
+              values:
+              - frontend
+        topologyKey : kubernetes.io/hostname
+  containers:
+    - image : nginx
+      name: nginx-cont
+      ports:
+        - containerPort : 80
