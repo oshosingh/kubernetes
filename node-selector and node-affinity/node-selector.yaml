@@ -11,3 +11,5 @@ spec:
       name: nginx-cont
       ports:
         - containerPort : 80
+  nodeSelector:
+    env : prod
