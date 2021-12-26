@@ -11,3 +11,9 @@ spec:
       name: nginx-cont
       ports:
         - containerPort : 80
+      resources:
+        memory : "64Mi"
+        cpu: "0.5"
+      limits:
+        memory : "128Mi"
+        cpu : "1"
