@@ -51,3 +51,6 @@ kubectl set image deployment deployment_name container_name = new_image --record
 kubectl scale deployment deployment_name --replicas 10 (scale deployment)
 kubectl rollout undo deployment deployment_name (rollout undo)
 
+# Taint and Toleration
+kubectl taint nodes node_name key=value:EffectName -> (NoSchedule)
+kubectl taint nodes node_name key=value:EffectName- (Un-taint a node)
