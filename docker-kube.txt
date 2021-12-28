@@ -14,8 +14,10 @@ sudo usermod -a -G docker ubuntu (reboot server)
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 sudo install minikube-linux-amd64 /usr/local/bin/minikube 
 
+# minikube start commands
 minikube start --vm-driver=none (on ec2 instances)
 minikube start --vm-driver=virtualbox (if virtual box is installed)
+minikube start (on windows - minikube volume mount, set the folder path in virtualbox shared file setting)
 
 curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
 chmod +x ./kubectl

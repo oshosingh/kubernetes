@@ -3,7 +3,6 @@ kind : Pod
 metadata:
   name : mypod
   labels :
-    env : prod
     app : nginx
 spec:
   containers:
@@ -17,6 +16,5 @@ spec:
   
   volumes:
   - name : host-vol
-    hostPath:
-      path: /f/kube-mount
-      type: Directory
+    persistentVolumeClaim:
+      claimName: pvc 
