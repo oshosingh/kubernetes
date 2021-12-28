@@ -13,3 +13,6 @@ sudo usermod -a -G docker ubuntu (reboot server)
 
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 sudo install minikube-linux-amd64 /usr/local/bin/minikube 
+
+minikube start --vm-driver=none (on ec2 instances)
+minikube start --vm-driver=virtualbox (if virtual box is installed)
