@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: frontend
+  name: nginx-replica
 spec:
   # modify replicas according to your case
   replicas: 3
@@ -14,5 +14,5 @@ spec:
         tier: frontend
     spec:
       containers:
-      - name: php-redis
-        image: gcr.io/google_samples/gb-frontend:v3
+      - name: nginx-rs
+        image: nginx
