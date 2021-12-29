@@ -12,3 +12,5 @@ spec:
   selector:
     app: nginx-dep
   type: LoadBalancer
+  externalIps:
+  - 172.31.12.239
