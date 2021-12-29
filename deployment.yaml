@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: backend-deployment
 spec:
   # modify replicas according to your case
   replicas: 3
   selector:
     matchLabels:
-      app: nginx-dep
+      app: backend
   template:
     metadata:
       labels:
-        app: nginx-dep
+        app: backend
     spec:
       containers:
-      - name: php-redis
-        image: nginx:1.17.3
+      - name: springbackend
+        image: osho/backend:latest
