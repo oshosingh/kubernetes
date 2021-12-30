@@ -1,0 +1,28 @@
+version: 0.2
+
+phases:
+    pre_build:
+        commands: 
+            - apt-get update
+            - aws --version
+            - echo logging in to Amazon
+            - REPOSITORY_URI= <path>
+            - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin $REPOSITORY_URI
+            - docker login -u username -p password
+      
+    build:
+        commands:
+            - echo Build started on `date`
+            - echo Building Docker image...
+            - docker build -t springbackend .
+            - docker tag springbackend:latest $REPOSITORY_URI:latest
+            
+    post_build:
+        commands:
+            - echo Build completed on `date`
+            - echo Pushing the Docker images
+            - docker push $REPOSITORY_URI:latest
+artifacts:
+    files:
+        - '**/*'
+    base_directory: 'SpringBackend'

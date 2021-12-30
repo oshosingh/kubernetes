@@ -1,0 +1,11 @@
+CodeBuild Iam policies:
+  1. Ec2ContainerFullAccess
+ 
+CodeDeploy Iam policies:
+  1. CodeDeployRole
+ 
+EC2 Policies:
+  1. EC2ContainerFullAccess
+  2. EC2CodeDeployRole
+  
+  imp points -> install awscli, codedeploy-agent

@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  labels:
+    app: deployment-label
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: springbackend
+        image: nginx
+        ports:
+            - containerPort: 80
+        imagePullPolicy: Always
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-nodeport
+  labels:
+    app: backend-svc-label
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: backend
+  type: NodePort

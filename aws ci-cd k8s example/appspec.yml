@@ -1,0 +1,19 @@
+version: 0.0
+os: linux
+files:
+    - source: /deploy/
+      destination: /home/ubuntu/app/backend/
+file_exists_behaviour: OVERWRITE
+permissions:
+    - object: /home/ubuntu/app
+      pattern: "**"
+      owner: ubuntu
+      group: ubuntu
+      type:
+        - file
+        - directory
+hooks:
+    AfterInstall:
+        - location: deploy/codedeploy.sh
+          timeout: 2700
+          runas: ubuntu

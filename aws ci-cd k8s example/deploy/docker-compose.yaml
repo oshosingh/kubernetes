@@ -1,0 +1,7 @@
+version: "3"
+services:
+    deployment:
+        image: 131872871854.dkr.ecr.ap-south-1.amazonaws.com/springbackend:latest
+        restart: always
+        ports:
+            -   "8081:8081"

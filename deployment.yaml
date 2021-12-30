@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend-deployment
+  labels:
+    app: deployment-label
 spec:
   # modify replicas according to your case
   replicas: 3
