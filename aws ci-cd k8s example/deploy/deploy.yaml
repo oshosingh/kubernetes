@@ -33,7 +33,7 @@ spec:
   ports:
   - port: 8081
     targetPort: 8081
-    NodePort: 31234
+    nodePort: 31234
   selector:
     app: backend
   type: NodePort
