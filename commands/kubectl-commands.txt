@@ -54,3 +54,9 @@ kubectl rollout undo deployment deployment_name (rollout undo)
 # Taint and Toleration
 kubectl taint nodes node_name key=value:EffectName -> (NoSchedule)
 kubectl taint nodes node_name key=value:EffectName- (Un-taint a node)
+
+
+# proxy
+kubectl proxy --port 8080 (launches in localhost)
+kubectl proxy --address='0.0.0.0' --port=8081 --accept-hosts='.*' (open to internet)
+kubectl proxy --address='0.0.0.0' --port=8081 --accept-hosts='.*' & (runs proxy in background)
