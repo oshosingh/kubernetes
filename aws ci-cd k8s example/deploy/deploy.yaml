@@ -18,7 +18,7 @@ spec:
       - name: springbackend
         image: 131872871854.dkr.ecr.ap-south-1.amazonaws.com/springbackend:latest
         ports:
-          - containerPort: 80
+          - containerPort: 8081
         imagePullPolicy: Always
 
 ---
@@ -31,8 +31,8 @@ metadata:
     app: backend-svc-label
 spec:
   ports:
-  - port: 80
-    targetPort: 80
+  - port: 8081
+    targetPort: 8081
   selector:
     app: backend
   type: NodePort
