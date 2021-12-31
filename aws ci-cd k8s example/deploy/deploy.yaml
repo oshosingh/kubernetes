@@ -16,9 +16,9 @@ spec:
     spec:
       containers:
       - name: springbackend
-        image: nginx
+        image: 131872871854.dkr.ecr.ap-south-1.amazonaws.com/springbackend:latest
         ports:
-            - containerPort: 80
+          - containerPort: 80
         imagePullPolicy: Always
 
 ---
