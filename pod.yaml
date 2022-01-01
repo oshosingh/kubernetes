@@ -18,5 +18,5 @@ spec:
   volumes:
   - name : host-vol
     hostPath:
-      path: /f/kube-mount
+      path: /home/ubuntu/kube-mount
       type: Directory
