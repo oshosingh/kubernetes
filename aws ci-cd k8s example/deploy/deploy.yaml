@@ -16,10 +16,18 @@ spec:
     spec:
       containers:
       - name: springbackend
-        image: 131872871854.dkr.ecr.ap-south-1.amazonaws.com/springbackend:latest
+        image: nginx
         ports:
-          - containerPort: 8081
+          - containerPort: 80
         imagePullPolicy: Always
+        volumeMounts:
+          - mountPath: /data 
+            name: host-vol
+      
+      volumes:
+        - name: host-vol
+          persistentVolumeClaim:
+            claimName: pv-claim
 
 ---
 
@@ -31,9 +39,43 @@ metadata:
     app: backend-svc-label
 spec:
   ports:
-  - port: 8081
-    targetPort: 8081
+  - port: 80
+    targetPort: 80
     nodePort: 31234
   selector:
     app: backend
   type: NodePort
+
+
+---
+
+apiVersion: v1 
+kind: PersistentVolume
+metadata:
+  name: pv-vol
+  labels:
+    volname: pv-vol
+spec:
+  storageClassName: manual
+  capacity: 
+    storage: 4Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /home/ubuntu/kube-mount
+
+---
+
+apiVersion: v1 
+kind: PersistentVolumeClaim
+metadata:
+  name: pv-claim
+  labels:
+    claimLabel: pv-claim
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
