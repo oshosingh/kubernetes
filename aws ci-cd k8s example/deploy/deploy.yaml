@@ -1,3 +1,38 @@
+
+apiVersion: v1 
+kind: PersistentVolume
+metadata:
+  name: pv-vol
+  labels:
+    volname: pv-vol
+spec:
+  storageClassName: manual
+  capacity: 
+    storage: 4Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /home/ubuntu/kube-mount
+
+---
+
+apiVersion: v1 
+kind: PersistentVolumeClaim
+metadata:
+  name: pv-claim
+  labels:
+    claimLabel: pv-claim
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+
+--- 
+
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -45,37 +80,3 @@ spec:
   selector:
     app: backend
   type: NodePort
-
-
----
-
-apiVersion: v1 
-kind: PersistentVolume
-metadata:
-  name: pv-vol
-  labels:
-    volname: pv-vol
-spec:
-  storageClassName: manual
-  capacity: 
-    storage: 4Gi
-  accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: /home/ubuntu/kube-mount
-
----
-
-apiVersion: v1 
-kind: PersistentVolumeClaim
-metadata:
-  name: pv-claim
-  labels:
-    claimLabel: pv-claim
-spec:
-  storageClassName: manual
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 2Gi
