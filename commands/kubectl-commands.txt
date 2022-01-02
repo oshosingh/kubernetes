@@ -65,3 +65,6 @@ kubectl proxy --address='0.0.0.0' --port=8081 --accept-hosts='.*' & (runs proxy 
   - jobs
   - kill %(job_id)
 }
+
+kubectl port-forward mongo-75f59d57f4-4nd6q 28015:27017
+( works with pod, deployment, replica set, service )
