@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
     - name: jupyter-pod
-      image: 
+      image: jupyter/datascience-notebook:latest
       ports:
         - containerPort: 8888
       command: ["/bin/bash", "-c"]
