@@ -11,5 +11,4 @@ spec:
       ports:
         - containerPort: 8888
           name: http 
-      command: ["/bin/bash", "-c"]
-      args: ["start.sh jupyter lab --LabApp.ip='0.0.0.0' --LabApp.allow_root=True --LabApp.notebook_dir = '/home/ubuntu/kube-mount' "]
+      command: ["/bin/bash", "-c", "start.sh jupyter lab --LabApp.ip='0.0.0.0' --LabApp.allow_root=True --LabApp.notebook_dir = '/home/ubuntu/kube-mount/'\n " ]
