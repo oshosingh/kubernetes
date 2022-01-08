@@ -1,0 +1,44 @@
+Architecture
+
+Components 
+    - kube controller manager
+    - cloud controller manager
+    - api server
+    - etcd
+    - kube scheduler 
+    - kubelet
+    - kube proxy
+
+Objects
+    - Pod
+    - ReplicaSet
+    - Deployment
+    - Services
+    - DaemonSet
+    - PersistentVolume
+    - PersistentVolumeClaim
+    - Storage Classes
+    - ConfigMap
+    - Secrets
+    - CronJob
+
+Affinites
+    - Pod Affinity and Anti-Affinity
+    - Node Affinity
+
+Security
+    Authentication
+        - x509 cert
+        - token
+        - username and password 
+        - others
+    Authorization
+        - Role (Namespaced : true)
+        - RoleBinding
+        - ClusterRole (Namespaced : false)
+        - ClusterRoleBinding
+
+
+
+
+
