@@ -68,3 +68,6 @@ kubectl proxy --address='0.0.0.0' --port=8081 --accept-hosts='.*' & (runs proxy 
 
 kubectl port-forward mongo-75f59d57f4-4nd6q 28015:27017
 ( works with pod, deployment, replica set, service )
+
+# Make API Server accessible from Internet
+minikube start --apiserver-ips=13.55.145.00
