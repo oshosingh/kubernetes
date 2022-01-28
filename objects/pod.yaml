@@ -6,6 +6,10 @@ metadata:
     env : prod
     app : nginx
 spec:
+  securityContext:
+      runAsUser: 1000
+      runAsGroup: 3000
+      fsGroup: 2000
   containers:
     - image : nginx
       name: nginx-cont
@@ -14,6 +18,8 @@ spec:
       volumeMounts:
       - mountPath: /data
         name: host-vol
+      securityContext:
+        allowPrivilegeEscalation: false
   
   volumes:
   - name : host-vol
