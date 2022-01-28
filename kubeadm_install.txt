@@ -25,7 +25,8 @@ sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 
 
-Initialization
+Initialization:
+
 kubeadm init --pod-network-cidr=10.244.0.0/16
 <!--
   if init fails
@@ -41,7 +42,13 @@ kubeadm init --pod-network-cidr=10.244.0.0/16
  run init again 
 -->
  copy the last line of init command and save it in notepad
+ 
+ run on worker node:
  kubeadm join 139.59.22.52:6443 --token w44x7b.p2o83ltqya21gikd \
         --discovery-token-ca-cert-hash sha256:cbb2c5556f21392a21b569405e6065c2e57bb4fdf26021d9afc519639664249d 
       
- 
+Start using cluster: 
+
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
