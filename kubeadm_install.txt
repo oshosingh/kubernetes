@@ -27,3 +27,21 @@ sudo apt-mark hold kubelet kubeadm kubectl
 
 Initialization
 kubeadm init --pod-network-cidr=10.244.0.0/16
+<!--
+  if init fails
+  The problem is cgroup driver. Kubernetes cgroup driver is set to systems but docker was set to systemd
+  create /etc/docker/daemon.json and add below
+  {
+      "exec-opts": ["native.cgroupdriver=systemd"]
+  }
+  
+ sudo systemctl daemon-reload
+ sudo systemctl restart docker
+ sudo systemctl restart kubelet
+ run init again 
+-->
+ copy the last line of init command and save it in notepad
+ kubeadm join 139.59.22.52:6443 --token w44x7b.p2o83ltqya21gikd \
+        --discovery-token-ca-cert-hash sha256:cbb2c5556f21392a21b569405e6065c2e57bb4fdf26021d9afc519639664249d 
+      
+ 
