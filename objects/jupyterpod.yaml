@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jupyterlab-vol
+  labels:
+    name: jupyterlab-vol
+  spec:
+    containers:
+      - image: jupyter/datascience-notebook:latest
+        name: jupyterlab-vol
+        imagePullPolicy: IfNotPresent
+        command: ["/bin/bash",
+                     "-c",
+                     "start.sh jupyter lab --LabApp.token='password' --LabApp.ip='0.0.0.0' --LabApp.allow_root=True"]
+        ports:
+          - containerPort : 8888
+        volumeMounts:
+        - mountPath: /home/jovyan/work
+          name: host-vol
+          # readOnly: true 
+
+    volumes:
+    - name : host-vol
+      # hostPath:
+      #   path: /home/osho/jupyter
+      #   type: Directory
+      persistentVolumeClaim:
+        claimName: pvc
+
+
+
