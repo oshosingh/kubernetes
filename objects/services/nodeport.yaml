@@ -7,8 +7,8 @@ metadata:
     app: backend-svc-label
 spec:
   ports:
-  - port: 8081
-    targetPort: 8081
+  - port: 80
+    targetPort: 80
   selector:
-    app: deployment-label
+    app: backend
   type: NodePort

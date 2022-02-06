@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-deployment
+  name: backend-nginx
   labels:
     app: deployment-label
 spec:
   # modify replicas according to your case
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: backend
@@ -16,5 +16,5 @@ spec:
         app: backend
     spec:
       containers:
-      - name: springbackend
-        image: osho/backend:latest
+      - name: nginxbackend
+        image: nginx:latest
