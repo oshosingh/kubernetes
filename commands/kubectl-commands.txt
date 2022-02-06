@@ -71,3 +71,6 @@ kubectl port-forward mongo-75f59d57f4-4nd6q 28015:27017
 
 # Make the API Server accessible from the Internet
 minikube start --apiserver-ips=13.55.145.00
+
+# nginx-ingress controller
+helm install nginx-ingress stable/nginx-ingress
