@@ -181,6 +181,8 @@ spec:
   externalTrafficPolicy: Local
   type: LoadBalancer
   loadBalancerIP: 139.59.49.20
+  externalIPs:
+  - 139.59.49.20
   ports:
   - port: 80
     targetPort: 80
