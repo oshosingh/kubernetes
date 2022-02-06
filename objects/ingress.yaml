@@ -9,9 +9,16 @@ spec:
   - http:
       paths:
       - path: /
-        pathType: Prefix
+        pathType: Exact
         backend:
           service:
             name: web
             port:
               number: 8080
+      - path: /nginx
+        pathType: Prefix
+        backend:
+          service:
+            name: backend-nodeport
+            port:
+              number: 80
