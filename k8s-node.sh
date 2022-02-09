@@ -17,3 +17,7 @@ echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https:/
 sudo apt-get update -y
 sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
+echo "{"exec-opts": ["native.cgroupdriver=systemd"]}" > /etc/docker/daemon.json
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+kubeadm init --pod-network-cidr=10.244.0.0/16
