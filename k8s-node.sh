@@ -3,7 +3,7 @@ sudo apt install apt-transport-https ca-certificates curl software-properties-co
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
 sudo apt update -y
-apt-cache policy docker-ce -y
+apt-cache policy docker-ce
 sudo apt install docker-ce -y
 cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
 net.bridge.bridge-nf-call-ip6tables = 1
@@ -17,7 +17,4 @@ echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https:/
 sudo apt-get update -y
 sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
-echo "{"exec-opts": ["native.cgroupdriver=systemd"]}" > /etc/docker/daemon.json
-sudo systemctl daemon-reload
-sudo systemctl restart docker
 kubeadm init --pod-network-cidr=10.244.0.0/16
