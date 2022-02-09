@@ -5,3 +5,8 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 sudo apt update -y 
 apt-cache policy docker-ce
 sudo apt install docker-ce -y
+sleep 5
+
+echo "{\"exec-opts\": [\"native.cgroupdriver=systemd\"], \"storage-driver\": \"overlay2\" }" > /etc/docker/daemon.json
+systemctl daemon-reload
+systemctl restart docker
