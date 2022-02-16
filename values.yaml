@@ -79,7 +79,7 @@ hub:
   extraVolumeMounts: []
   image:
     name: jupyterhub/k8s-hub
-    tag: "1.2.0"
+    tag: "1.1.3-n314.h6a21d06b"
     pullPolicy:
     pullSecrets: []
   resources: {}
