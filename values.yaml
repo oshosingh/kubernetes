@@ -64,7 +64,7 @@ hub:
         - ReadWriteOnce
       storage: 1Gi
       subPath:
-      storageClassName: manual
+      storageClassName: db
     url:
     password:
   labels: {}
