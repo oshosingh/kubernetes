@@ -31,7 +31,7 @@ hub:
       admin_access: true
       authenticator_class: dummy
   service:
-    type: NodePort
+    type: ClusterIP
     annotations: {}
     ports:
       nodePort:
