@@ -360,7 +360,7 @@ singleuser:
     static:
       pvcName:
       subPath: "{username}"
-    capacity: 10Gi
+    capacity: 5Gi
     homeMountPath: /home/jovyan
     dynamic:
       storageClass: nfs-client
