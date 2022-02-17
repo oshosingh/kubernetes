@@ -377,8 +377,8 @@ singleuser:
     limit:
     guarantee:
   memory:
-    limit: 100MiB
-    guarantee: 200MiB
+    limit: 
+    guarantee: 0.5Gi
   extraResource:
     limits: {}
     guarantees: {}
