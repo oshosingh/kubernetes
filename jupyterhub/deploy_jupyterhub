@@ -12,6 +12,8 @@ sudo systemctl restart nfs-kernel-server # restarting the NFS kernel
 
 echo "====================== Deploying NFS Provisioner ======================="
 
+sudo apt install nfs-common
+
 nfs-server-ip = <host-machine-public-ip>
 
 helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
