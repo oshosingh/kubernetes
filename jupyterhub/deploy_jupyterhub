@@ -1,3 +1,13 @@
+nfs-server-ip = x.x.x.x
+path = /mnt/path
+
+helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
+
+helm install nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner \
+    --set nfs.server= $nfs-server-ip \
+    --set nfs.path= $nfs-server-ip
+
+
 helm repo add jupyterhub https://jupyterhub.github.io/helm-chart/
 helm repo update
 helm install myjup jupyterhub/jupyterhub --values values_manual.yaml
