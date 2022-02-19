@@ -1,3 +1,4 @@
+echo "====================== Running NFS Server ============================"
 sudo apt-get update
 sudo apt install nfs-kernel-server 
 sudo mkdir /mnt/jupyterhub -p
@@ -9,9 +10,9 @@ sudo exportfs -a # making the file share available
 
 sudo systemctl restart nfs-kernel-server # restarting the NFS kernel
 
-nfs-server-ip = <host-machine-public-ip>
-
 echo "====================== Deploying NFS Provisioner ======================="
+
+nfs-server-ip = <host-machine-public-ip>
 
 helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
 
