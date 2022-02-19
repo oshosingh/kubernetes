@@ -1,5 +1,5 @@
 sudo apt-get update
-sudo apt install nfs-kernel-server -Y
+sudo apt install nfs-kernel-server 
 sudo mkdir /mnt/jupyterhub -p
 sudo chown nobody:nogroup /mnt/jupyterhub 
 sudo chmod 777 /mnt/jupyterhub 
