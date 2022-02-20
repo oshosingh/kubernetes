@@ -74,3 +74,7 @@ minikube start --apiserver-ips=13.55.145.00
 
 # nginx-ingress controller
 helm install nginx-ingress stable/nginx-ingress
+
+
+# Get Available api resources
+kubectl api-resources -o wide
