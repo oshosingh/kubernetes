@@ -15,10 +15,10 @@ echo "====================== Deploying NFS Provisioner ======================="
 sudo apt install nfs-common
 helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
 
-helm install nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner --set nfs.server= <host-machine-public-ip> --set nfs.path= /mnt/jupyterhub
+helm install nfs-server nfs-subdir-external-provisioner/nfs-subdir-external-provisioner --set nfs.server= <host-machine-public-ip> --set nfs.path= /mnt/jupyterhub
 
 echo "====================== Deploying Jupyterhub ============================"
 
 helm repo add jupyterhub https://jupyterhub.github.io/helm-chart/
 helm repo update
-helm install myjup jupyterhub/jupyterhub --values values_manual.yaml
+helm install myjup jupyterhub/jupyterhub --values /root/kubernetes/jupyterhub/values_manual.yaml
