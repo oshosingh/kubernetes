@@ -27,6 +27,10 @@ imagePullSecrets: []
 # the proxy pod.
 hub:
   config:
+    Authenticator:
+      admin_users:
+        - osho
+        - vivek
     JupyterHub:
       admin_access: true
       authenticator_class: dummy
@@ -64,7 +68,7 @@ hub:
         - ReadWriteOnce
       storage: 1Gi
       subPath:
-      storageClassName: nfs-client
+      storageClassName: hub-db-dir
     url:
     password:
   labels: {}
@@ -360,10 +364,10 @@ singleuser:
     static:
       pvcName:
       subPath: "{username}"
-    capacity: 5Gi
+    capacity: 3Gi
     homeMountPath: /home/jovyan
     dynamic:
-      storageClass: nfs-client
+      storageClass: jupyter-sc
       pvcNameTemplate: claim-{username}{servername}
       volumeNameTemplate: volume-{username}{servername}
       storageAccessModes: [ReadWriteOnce]
@@ -565,4 +569,3 @@ debug:
 
 global:
   safeToShowValues: false
-
