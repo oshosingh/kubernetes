@@ -9,4 +9,9 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /f/kube-mount
+    path: /f/kube-mount 
+  claimRef:
+    apiVersion: v1 
+    kind: PersistentVolumeClaim 
+    name: jupyter-xyz 
+    namespace: default 
