@@ -1,0 +1,4 @@
+
+If you get 500 server error
+
+cp /opt/conda/lib/python3.9/site-packages/nbgitpuller/templates/status.html /opt/conda/lib/python3.9/site-packages/notebook/templates/status.html
