@@ -13,7 +13,8 @@ Objects
     - Pod
     - ReplicaSet
     - Deployment
-    - Services
+    - StatefulSet
+    - Services, Headless service
     - DaemonSet
     - PersistentVolume
     - PersistentVolumeClaim
@@ -25,6 +26,10 @@ Objects
 Affinites
     - Pod Affinity and Anti-Affinity
     - Node Affinity
+
+Probes
+    - Readiness probe
+    - Liveness probe
 
 Security
     Authentication
