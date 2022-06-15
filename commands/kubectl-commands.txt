@@ -78,3 +78,6 @@ helm install nginx-ingress stable/nginx-ingress
 
 # Get Available api resources
 kubectl api-resources -o wide
+
+# Get kubeadm join command
+kubeadm token create --print-join-command
