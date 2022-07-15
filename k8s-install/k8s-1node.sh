@@ -1,3 +1,5 @@
+#rm /etc/containerd/config.toml
+#systemctl restart containerd
 echo "================ Installing Docker ==========================="
 sudo apt update -y
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
